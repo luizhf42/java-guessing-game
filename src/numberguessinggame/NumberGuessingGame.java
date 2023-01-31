@@ -14,9 +14,17 @@ public class NumberGuessingGame {
     }
 
     private void askNumber() {
-        System.out.print("Make a guess from 1 to 100: ");
-        int guess = scanner.nextInt();
-        handleGuess(guess);
+        while (true) {
+            try {
+                System.out.print("Make a guess from 1 to 100: ");
+                int guess = scanner.nextInt();
+                handleGuess(guess);
+                break;
+            } catch (Exception InputMismatchException) {
+                System.out.println("Invalid input!");
+                scanner.next();
+            }
+        }
     }
 
     private void handleGuess(int guess) {
