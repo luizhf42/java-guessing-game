@@ -15,18 +15,18 @@ public class NumberGuessingGame {
 
     private void askNumber() {
         System.out.print("Make a guess from 1 to 100: ");
-        byte guess = scanner.nextByte();
+        int guess = scanner.nextInt();
         handleGuess(guess);
     }
 
-    private void handleGuess(byte guess) {
+    private void handleGuess(int guess) {
         if (guess < 1 || guess > 100) {
             System.out.println("Invalid number!");
             askNumber();
         } else checkAnswer(guess);
     }
 
-    private void checkAnswer(byte guess) {
+    private void checkAnswer(int guess) {
         if (guess == answer) {
             System.out.println(endGame(true));
         } else {
@@ -36,7 +36,7 @@ public class NumberGuessingGame {
         }
     }
 
-    private String showHint(short guess) {
+    private String showHint(int guess) {
         return guess > answer ? "Your guess was too high." : "Your guess was too low.";
     }
 
